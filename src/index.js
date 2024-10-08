@@ -1,15 +1,18 @@
-const myarray=[]
-document.addEventListener("DOMContentLoaded", () => {
-  mysubmitt();
-  
+taskk=document.querySelector("#submitt123")
+const taskList = document.getElementById('tasks');
+
+taskk.onclick=function(event){
+event.preventDefault()
+const li = document.createElement("li")
+x = document.getElementById("new-task-description").value;
+li.textContent=x
+taskList.appendChild(li)
+const deleteButton = document.createElement('button')
+deleteButton.innerText = 'Del';
+deleteButton.addEventListener('click', () => {
+taskList.removeChild(li);
 });
+li.appendChild(deleteButton)
 
-function mysubmitt(event){
-  event.preventDefault()
-  const formDataa=new FormData(event.target)
-  const x=Object.fromEntries(formDataa.entries())
-  console.log(x)
-
+console.log(event.target)
 }
-document.getElementById("create-task-form").addEventListener('submit',mysubmitt)
-//console.log(myarray)
